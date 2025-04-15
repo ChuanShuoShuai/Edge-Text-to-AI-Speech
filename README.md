@@ -3,6 +3,7 @@
 Automatically generate an empty page after entering a paragraph of text, allowing Edge browser to read whatever it wants to read.
 
 输入一段文字后自动生成空页面让Edge浏览器想读什么就读什么，帅锅网站新增功能，方法如下：
+
 1.打开新网站选中他
 ![image](https://github.com/user-attachments/assets/6a59fae3-dab5-4ef6-ac5d-2c2e2f56e815)
 
