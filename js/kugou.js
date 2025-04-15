@@ -1,0 +1,1 @@
+<script src="https://activity.kugou.com/vo-activity/fa339ef0-2270-11ea-8b2a-c3556712becb/dist/kgPlayerV2.min.js"></script>
