@@ -1,0 +1,78 @@
+.fab,
+.fab2,
+.fab3 {
+  position: fixed;
+  z-index: 5000;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 56px;
+  min-width: 56px;
+  height: 56px;
+  margin: 8px 0;
+  padding: 0 16px;
+  overflow: hidden;
+  color: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 36px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: rgba(24,122,255,0.7) !important;
+  backdrop-filter: blur(5px);
+  vertical-align: middle;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    -webkit-box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    -webkit-box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1),
+    -webkit-box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  will-change: box-shadow;
+  zoom: 1;
+  -webkit-user-drag: none;
+  right: 16px;
+  bottom: 16px;
+}
+@media (min-width: 1024px) {
+  .fab,
+  .fab2,
+  .fab3 {
+    /* 电脑上距离屏幕右下角 24px */
+    right: 24px;
+  }
+}
+
+.fab .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  margin-top: 16px;
+  margin-left: 16px;
+  line-height: 24px;
+  display: inline-block;
+  text-align: center;
+}
+.fab2 {
+  bottom: 80px;
+}
+.fab3 {
+  bottom: 144px;
+}

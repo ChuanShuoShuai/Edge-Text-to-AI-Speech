@@ -1,0 +1,27 @@
+html.darkmode body {
+  background-color: rgb(17, 17, 17);
+}
+html.darkmode p {
+  color: white;
+}
+html.darkmode .color-white {
+  color: white !important;
+}
+html.darkmode .navbar button {
+  color: white;
+  background-color: black;
+  border-color: #9c9c9c;
+}
+html.darkmode .sp-button {
+  color: white;
+  background-color: black;
+  border-color: #9c9c9c;
+}
+html.darkmode .alert-dark {
+  color: white;
+  background-color: black;
+  border-color: #9c9c9c;
+}
+html.darkmode .fab-btn {
+  background-color: rgb(255,255,255,0.7) !important;
+}

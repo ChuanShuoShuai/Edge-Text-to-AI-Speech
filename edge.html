@@ -1,0 +1,701 @@
+<!doctype html>
+<html>
+
+<head>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/darkmode.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+	<meta charset="utf-8">
+	<meta name="keywords" content="传说当中的帅锅,Edge,Edge朗读,帅锅网站,浏览器大声朗读文字转语音,浏览器语音朗读,朗读" />
+	<meta name="description" content="传说当中的帅锅 - Edge浏览器文字转AI语音" />
+	<title>传说当中的帅锅 - Edge浏览器文字转AI语音</title>
+	<link rel="icon" href="./favicon.ico" type="image/x-icon">
+	<style>
+		.btn {
+			transition: All 0.1s ease-in-out!important;
+			-webkit-transition: All 0.1s ease-in-out!important;
+			-moz-transition: All 0.1s ease-in-out!important;
+			-o-transition: All 0.1s ease-in-out!important;
+		}
+
+		.btn:active {
+			transform: scale(0.95)!important;
+			-webkit-transform: scale(0.95)!important;
+			-moz-transform: scale(0.95)!important;
+			-o-transform: scale(0.95)!important;
+			-ms-transform: scale(0.95)!important;
+		}
+
+		body {
+			margin: 0;
+		}
+
+		h1 {
+			color: white;
+			opacity: 70%;
+		}
+
+		h4 {
+			color: rgba(0, 0, 0, 0.5);
+			opacity: 70%;
+		}
+
+		h5 {
+			opacity: 70%;
+		}
+
+		.select_top_button {
+			position: fixed;
+			/*固定位置*/
+			z-index: 99;
+			/*设置优先级显示，保证不会被覆盖*/
+			bottom: 20px;
+			background-color: #1878ffb0;
+			box-shadow: 0px 0px 10px #1878ff89;
+			-webkit-backdrop-filter: blur(8px);
+			backdrop-filter: blur(8px);
+			border-color: white;
+		}
+
+		.mohu3 {
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+			background: rgba(255, 255, 255, 0.8) !important;
+			-webkit-backdrop-filter: blur(8px);
+			backdrop-filter: blur(8px);
+		}
+
+		.mohu2 {
+			box-shadow: 0px 0px 10px rgba(24, 122, 255, .7);
+			background: rgba(24, 122, 255, 0.8) !important;
+			-webkit-backdrop-filter: blur(8px);
+			backdrop-filter: blur(8px);
+		}
+
+		.mohu1 {
+			box-shadow: 0px 0px 10px rgba(24, 122, 255, .7);
+			background: rgba(24, 122, 255, 0.8) !important;
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+			backdrop-filter: blur(8px);
+		}
+
+		.mohu {
+			box-shadow: 0px 0px 10px rgba(24, 122, 255, .7);
+			background: rgba(255, 255, 255, 0.8) !important;
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+			backdrop-filter: blur(8px);
+		}
+		.tooltip {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .tooltip.show {
+            opacity: 1;
+        }
+		.accordion-button:not(.collapsed){
+			background-color: #1878ff3d!important;
+			color: #187aff!important;
+		}
+		.form-check-label {
+    margin-right: 10px; /* 调整标签之间的间距 */
+}
+
+.form-check {
+    display: inline-block; /* 使表单检查项在同一行显示 */
+}
+.col-md-6 {
+    flex: 0 0 auto;
+    width: 50%;
+}
+.popover {
+            display: none;
+            position: absolute;
+            background-color: #187aff!important;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            opacity: 0;
+            /* 初始状态透明 */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            /* 添加过渡效果 */
+            transform: translateY(10px);
+            /* 初始状态下向下移动一点 */
+            z-index: 1000;
+            width: 200px;
+            /* 固定宽度 */
+        }
+
+        /* 当气泡显示时的状态 */
+        .popover.show {
+            display: block;
+            opacity: 1;
+            /* 完全不透明 */
+            transform: translateY(0);
+            /* 回到原始位置 */
+        }
+		@media (orientation: portrait) {
+    .form-check {
+        display: block; /* 使表单检查项在同一列显示 */
+        margin-bottom: 10px;
+    }
+    .form-check-label {
+        margin-right: 0; /* 调整标签之间的间距 */
+    }
+    label {
+        margin-bottom: 5px;
+    }
+}
+
+@media (orientation: landscape) {
+    .form-check {
+        display: inline-block; /* 使表单检查项在同一行显示 */
+        margin-right: 10px; /* 调整标签之间的间距 */
+    }
+    .form-check-label {
+        margin-right: 10px; /* 调整标签之间的间距 */
+    }
+    label {
+        margin-bottom: 0; /* 移除底部间距 */
+    }
+}
+@media (max-width: 768px) {
+            .yincang {
+                display: none;
+            }
+        }
+	</style>
+	<link href="css/component.css" rel="stylesheet" type="text/css">
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="css/animate.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+        <div class="modal fade" id="myModal2">
+  <div class="modal-dialog  modal-dialog-centered modal-lg">
+    <div class="modal-content mohu3">
+      <div class="modal-header">
+        <h4 class="modal-title" style="color:#187aff;">录制方法（系统内录）</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" style="height:500px">
+<iframe src="edge2.html" width="100%" height="450"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="modal fade" id="myModal">
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content mohu3">
+      <div class="modal-header">
+        <h4 class="modal-title" style="color:#187aff;">使用方法</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+		<div class="accordion" id="accordionPanelsStayOpenExample">
+			<div class="accordion-item">
+			  <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+				  电脑端
+				</button>
+			  </h2>
+			  <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+				<div class="accordion-body">
+				  输入一段话然后按下生成按钮，在新的界面“朗读页面”里点击快捷键[Ctrl]+[Shift]+[U]即可开始大声朗读。若想返回此界面只需在浏览器上方标签页返回即可，若想移除生成的新页面，点击[×关闭标签页]即可。      <br>注：如您非Edge浏览器也具备AI语音功能，也可以使用，不受限制~
+				</div>
+			  </div>
+			</div>
+			<div class="accordion-item">
+			  <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+				  手机端
+				</button>
+			  </h2>
+			  <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+				<div class="accordion-body">
+					输入一段话然后按下生成按钮，在新的界面“朗读页面”里点击浏览器下方菜单栏，然后点击[大声朗读]按钮。手机端会以新窗口呈现，若想返回此界面只需在浏览器下方[多窗口视图(2)]后点击帅锅网站，若想移除生成的新页面，点击浏览器下方[多窗口视图(2)]，[×关闭“大声朗读”]标签页即可。 <br>注：如您非Edge浏览器也具备AI语音功能，也可以使用，不受限制~
+				</div>
+			  </div>
+			</div>
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="panelsStayOpen-heading3">
+				  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse3" aria-expanded="false" aria-controls="panelsStayOpen-collapse3">
+					沉浸式模式
+				  </button>
+				</h2>
+				<div id="panelsStayOpen-collapse3" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading3">
+				  <div class="accordion-body">
+					  打开谷歌浏览器（其他浏览器有的话也可以），然后右键点击在阅读模式下打开，将“朗读页面”文本进行全选（Ctrl+A），然后即可在侧边栏中沉浸。<br>注：其他浏览器打开沉浸式后直接可以观看文本，谷歌浏览器较麻烦。修改背景颜色也可以达到沉浸式目的，请根据个人喜好进行沉浸式。
+				  </div>
+				</div>
+			  </div>
+			  <div class="accordion-item">
+				<h2 class="accordion-header" id="panelsStayOpen-heading4">
+				  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse4" aria-expanded="false" aria-controls="panelsStayOpen-collapse4">
+					选取文件
+				  </button>
+				</h2>
+				<div id="panelsStayOpen-collapse4" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading4">
+				  <div class="accordion-body">
+					  电脑端：点击后选择一个文件即可。<br>手机端：[安卓端]会弹出“文件管理器”，然后选择对应文件夹的文件即可（灰色图标为暂不支持）。<br>[苹果端]会弹出“我的iPhone”或者其他“文件浏览器”，您需要事先在“文件”或“文件浏览器”APP中新建一个文本，或者从其他APP中使用[分享]导入到“文件”或“文件浏览器”APP才可以让浏览器读取到文件（灰色图标为暂不支持）。
+				  </div>
+				</div>
+			  </div>
+			  <div class="accordion-item">
+				<h2 class="accordion-header" id="panelsStayOpen-heading5">
+				  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse5" aria-expanded="false" aria-controls="panelsStayOpen-collapse5">
+					字体设置
+				  </button>
+				</h2>
+				<div id="panelsStayOpen-collapse5" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading5">
+				  <div class="accordion-body">
+您可以在“F12浏览器调试”中加入您喜欢的字体，具体格式已开源也已标注。您可以尝试一些护眼字体或者艺术字体。
+				  </div>
+				</div>
+			  </div>
+			  <div class="accordion-item">
+				<h2 class="accordion-header" id="panelsStayOpen-heading6">
+				  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse6" aria-expanded="false" aria-controls="panelsStayOpen-collapse6">
+					弹出方式
+				  </button>
+				</h2>
+				<div id="panelsStayOpen-collapse6" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading6">
+				  <div class="accordion-body">
+该功能仅在电脑端（支持多标签页的浏览器）有效。当您选择独立窗口模式时，可以获得一个非常简洁的窗口，该窗口只有一个带有地址栏的大声朗读，您可以直接点击使用，当然快捷键也是有效的，这个功能很适合专注于阅读的场景。
+				  </div>
+				</div>
+			  </div>
+			  <div class="accordion-item">
+				<h2 class="accordion-header" id="panelsStayOpen-heading7">
+				  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse7" aria-expanded="false" aria-controls="panelsStayOpen-collapse7">
+					背景设置
+				  </button>
+				</h2>
+				<div id="panelsStayOpen-collapse7" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading7">
+				  <div class="accordion-body">
+当您生成一个自定义颜色时，新的窗口将会自动采用该颜色，值得注意的是字体颜色会根据背景颜色来改变以更容易观察到文字，在浅色下字体为黑色，在深色下为白色。此外，当您生成多个页面时，这些颜色都是独立的，您即使在帅锅网站更改了颜色，也依然保留已生成页面的颜色，故您可以生成多个不一样颜色的页面。
+				  </div>
+				</div>
+			  </div>
+		  </div>
+</div>
+    </div>
+  </div>
+</div>
+	<div class="md-modal md-effect-1" id="modal-2">
+		<div class="md-content">
+			<h3 style="color: white;">录制方法（系统内录）</h3>
+			<div>
+				<p align="center"><iframe class="img-fluid" src="edge2.html" width="1920" height="1200"
+						allowTransparency="true" frameborder="0"></iframe></p>
+				<button class="btn btn-secondary md-close" style="color: #187aff;" type="button">关闭</button>
+			</div>
+		</div>
+	</div>
+	<div class="bs-component">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="position: fixed;top: 0;width: 100%;z-index: 233;box-shadow: 0px 0px 10px rgba(24, 122, 255, .7);background: rgba(24, 122, 255, 0.8) !important;
+		-webkit-backdrop-filter: blur(8px);backdrop-filter: blur(8px);">
+			<div class="container">
+				<a class="navbar-brand" one-link-mark="yes"><b>传说当中的帅锅</b></a><a class="navbar-brand"
+					one-link-mark="yes">Edge浏览器文字转AI语音 V1.8</a>
+				<div class="collapse navbar-collapse" id="navbarColor01">
+					<ul class="navbar-nav me-auto">
+						<li class="nav-item">
+							<a class="nav-link active" href="https://www.sgguo.com" one-link-mark="yes"> <img
+									src="static/home.png" width="15"> 返回首页
+								<span class="visually-hidden">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" one-link-mark="yes">代码由 @胖鼠奕德 / @传说当中的帅锅 提供。
+								<span class="visually-hidden">(current)</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="md-modal md-effect-1" id="modal-1">
+			<div class="md-content">
+				<h3 style="color: white;">使用方法</h3>
+				<div>
+					<ul>
+						输入一段话然后按下生成按钮，在新的界面“朗读页面”里点击快捷键Ctrl+Shift+U即可开始大声朗读，若想返回此界面只需在浏览器上方标签页返回即可，若想移除生成的新页面，点击×关闭标签页即可。
+					</ul>
+					<button class="btn btn-secondary md-close" style="color: #187aff;" type="button">关闭</button>
+				</div>
+			</div>
+		</div>
+		<a><img src="static/间隔符.jpg" height="20px" class="img-fluid img2"></a>
+		<p>
+		<div align="center" style="padding-top: 4em;">
+			<div class="container">
+				<div class="form-group">
+					<input type="file" id="fileInput" accept=".txt" style="display:none" onchange="showContent()">
+					<textarea class="form-control" name="textarea_01" id="area" cols="70" rows="12" placeholder="请在这里输入可读内容。若输入框感到不适，您可以尝试拖拽右下角标识进行放大缩小。"></textarea>
+				</div>
+				<div class="row" style="margin-top: 10px;">
+					<div class="col-md-10 d-flex align-items-center">
+						<a><b>字体：</b></a>
+						<div class="dropdown me-2">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="fontDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+								Arial <!-- 默认显示的字体 -->
+							</button>                <ul class="dropdown-menu mohu3" aria-labelledby="fontDropdown">
+                    <li><a class="dropdown-item" href="#" data-font="Arial, sans-serif">Arial</a></li>
+                    <li><a class="dropdown-item" href="#" data-font="Verdana, sans-serif">Verdana</a></li>
+                    <li><a class="dropdown-item" href="#" data-font="Helvetica, sans-serif">Helvetica</a></li>
+                    <li><a class="dropdown-item" href="#" data-font="Times New Roman, serif">Times New Roman</a></li>
+                    <li><a class="dropdown-item" href="#" data-font="Courier New, monospace">Courier New</a></li>
+                    <li><a class="dropdown-item" href="#" data-font="Georgia, serif">Georgia</a></li>
+                    <li><a class="dropdown-item" href="#" data-font="Microsoft YaHei, sans-serif">微软雅黑</a></li>
+                    <li><a class="dropdown-item" href="#" data-font="SimSun, serif">宋体</a></li>
+					<!--
+					如果您的电脑支持更多的字体，您可以在这里添加更多字体，格式为：                    <li><a class="dropdown-item" href="#" data-font="SimSun, serif">宋体</a></li>
+                    -->
+                </ul>
+            </div>
+            <select class="form-select d-none" id="fontSelect">
+                <option value="Arial, sans-serif">Arial</option>
+                <option value="Verdana, sans-serif">Verdana</option>
+                <option value="Helvetica, sans-serif">Helvetica</option>
+                <option value="Times New Roman, serif">Times New Roman</option>
+                <option value="Courier New, monospace">Courier New</option>
+                <option value="Georgia, serif">Georgia</option>
+                <option value="Microsoft YaHei, sans-serif">微软雅黑</option>
+                <option value="SimSun, serif">宋体</option>
+				<!--
+				注意此处也应该同上加入一样的字体，一一对应，格式为：
+				<option value="SimSun, serif">宋体</option>
+                -->
+            </select>
+            <a style="margin-left: 15px;color: #222d;text-decoration: none" class="yincang"><b>弹出方式：</b></a>
+            <div class="form-check me-2">
+                <input class="form-check-input yincang" type="radio" name="openOption" id="openTab" value="tab" checked>
+                <label class="form-check-label yincang" for="openTab">
+                    新标签页打开
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input yincang" type="radio" name="openOption" id="openWindow" value="window">
+                <label class="form-check-label has-popover yincang" for="openWindow" data-popover-content="若浏览器禁止弹窗，请点击允许，但是绝少数情况下会出现禁止">
+                    新窗口打开
+                </label>
+            </div>
+            <a style="margin-left: 15px;"><b>背景颜色：</b></a>
+            <input type="color" class="form-control-color btn btn-light" id="bgColor" value="#ffffff" style="width: 80px;">
+        </div>
+    </div>
+</div>
+</div>
+<div class="popover" id="customPopover">
+	有一种蛋叫做“彩蛋”
+</div>
+								</p>
+		<p align="center"><button type="button" class="btn btn-success" id="btn" style="width:150px;height:50px;font-size:20px">√ 生成</button> <button class="btn btn-primary" id="txtbutton" type="button" style="width:170px;height:50px;font-size:20px"><svg t="1743560865777" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3561" width="15" height="15"><path d="M855.04 385.024q19.456 2.048 38.912 10.24t33.792 23.04 21.504 37.376 2.048 54.272q-2.048 8.192-8.192 40.448t-14.336 74.24-18.432 86.528-19.456 76.288q-5.12 18.432-14.848 37.888t-25.088 35.328-36.864 26.112-51.2 10.24l-567.296 0q-21.504 0-44.544-9.216t-42.496-26.112-31.744-40.96-12.288-53.76l0-439.296q0-62.464 33.792-97.792t95.232-35.328l503.808 0q22.528 0 46.592 8.704t43.52 24.064 31.744 35.84 12.288 44.032l0 11.264-53.248 0q-40.96 0-95.744-0.512t-116.736-0.512-115.712-0.512-92.672-0.512l-47.104 0q-26.624 0-41.472 16.896t-23.04 44.544q-8.192 29.696-18.432 62.976t-18.432 61.952q-10.24 33.792-20.48 65.536-2.048 8.192-2.048 13.312 0 17.408 11.776 29.184t29.184 11.776q31.744 0 43.008-39.936l54.272-198.656q133.12 1.024 243.712 1.024l286.72 0z" p-id="3562" fill="#ffffff"></path></svg> 选择文件</button> <button type="button" class="btn btn-danger" style="width:150px;height:50px;font-size:20px" onclick="location.href='javascript:location.reload();'">× 清空</button></p>
+		<p align="center"><button type="button" class="btn btn-primary md-trigger" data-bs-toggle="modal" data-bs-target="#myModal">✎ 使用方法</button>
+			<button type="button" class="btn btn-primary md-trigger" data-bs-toggle="modal" data-bs-target="#myModal2">♫ 录制方法</button>
+		</p>
+		<div class="container">
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="panelsStayOpen-heading8">
+					  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse8" aria-expanded="false" aria-controls="panelsStayOpen-collapse8">
+						<b>更新内容（2025年4月2日）</b>
+					  </button>
+					  <div id="panelsStayOpen-collapse8" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading8">
+						<div class="accordion-body" style="font-size: 15px;line-height:25px;">
+              <p align="center"><img src="img/df06a0bca4d7378b8f288ff06e4a9bbe.jpeg" class="img-fluid" width="30%"></p>          
+				○ 新增 当您生成一个新页面时而不会覆盖原来的帅锅网站，反之会在新标签页打开方便随时生成和移除，该标签页会显示“不安全”，但其实是本地的文件，不会采集您任何的信息，该文件在关闭标签页时自动清除文件<br>
+                ○ 新增 可以生成多个朗读页面以满足多页、多文的需求，您无需关闭已经生成好的朗读页面，只需返回帅锅网站标签页，然后再次点击生成即可生成第二个页面，以此类推，没有数量限制<br>
+                ○ 新增 现在具备一些实时新手教程<br>
+				○ 新增 朗读页面现在适配手机端，可通过正常缩放比来阅读<br>
+				○ 新增 手机端、沉浸式模式、选取本地文件使用说明<br>
+				○ 新增 支持安卓端、苹果端设备<br>
+				○ 新增 现在支持换行和空格显示<br>
+				○ 新增 现在支持更换字体（您可从F12源代码中添加您电脑里已有的字体，修改和插入的一行已用注释标注）<br>
+				○ 新增 现在您可以选择是在新标签页打开还是在新窗口打开，在新窗口打开注意允许弹出<br>
+				○ 新增 现在可以更改生成的界面的背景颜色，与字体搭配可玩性比较高，您可以生成护眼风格的屏幕，也可以生成艺术字的屏幕，字体颜色会根据背景颜色来改变以更容易观察到文字，例如在浅色下为黑色，在深色下为白色<br>
+                ○ 修复 某些按钮动画消失<br>
+                ○ 修复 使用帮助图片过小<br>
+			</div>
+		</div>
+	  </div> 
+		<div style="padding: 20px;" id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+			<div class="carousel-inner">
+			  <div class="carousel-item active">
+				  <p><img src="img/banner112.png" class="d-block w-100 btn" onClick="location.href='https://click.sgguo.com/ahz'"></p>
+				</div>
+				<!--div class="carousel-item">
+				  <p><img src="img/banner2.png" class="d-block w-100" onClick="location.href='https://wopan.sgguo.com'"></p>
+				</div>-->
+			  <div class="carousel-item">
+				<p><img src="img/banner5.png" class="d-block w-100 btn" onClick="location.href='https://www.sgguo.com'"></p>
+			  </div>
+			  <div class="carousel-item ">
+				<p><img src="img/banner3.png" class="d-block w-100 btn"
+					onClick="location.href='https://www.bilibili.com/video/BV1pU4y197aA'"></p>
+			  </div>
+			  <div class="carousel-item">
+				<p><img src="img/banner6.png" class="d-block w-100 btn" onClick="location.href='https://www.sgguo.com/make.html'"></p>
+			  </div>
+			</div>
+			<button class="carousel-control-prev btn" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+			  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			  <span class="visually-hidden">Previous</span>
+			</button>
+			<a name="1"></a><button class="carousel-control-next btn" type="button" data-bs-target="#carouselExampleFade"
+			  data-bs-slide="next">
+			  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			  <span class="visually-hidden">Next</span>
+			</button>
+		  </div>
+		</div>
+		<script>
+			function alertTips() {
+				alert('输入一段话然后按下生成按钮，在新的界面“朗读页面”里点击快捷键Ctrl+Shift+U即可开始大声朗读，若想返回此界面只需在浏览器上方标签页返回即可，若想移除生成的新页面，点击×关闭标签页即可。');
+			}
+		</script>
+		<p align="center"><img src="static/bei.svg" width="30" height="20">备案号：辽ICP备2021001172号-2 ©2023 传说当中的帅锅</p>
+		<p align="center" style="color:red"> 未经作者许可，禁止转载或复制，若想要推荐给别人请标明网站！ </p>
+		<div class="md-overlay"></div>
+		<script src="js/classie.js"></script>
+		<script src="js/modalEffects.js"></script>
+		<script>
+			var polyfilter_scriptpath = '/js/';
+		</script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+    const fontDropdown = document.getElementById('fontDropdown');
+    const fontSelect = document.getElementById('fontSelect');
+
+    // 初始化默认字体
+    fontDropdown.textContent = 'Arial';
+    fontSelect.value = 'Arial, sans-serif';
+
+    // 处理下拉菜单项点击事件
+    const dropdownItems = document.querySelectorAll('.dropdown-item');
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', function(event) {
+            event.preventDefault();
+            const selectedFont = this.getAttribute('data-font');
+            const fontName = this.textContent;
+
+            // 更新按钮文本和隐藏的<select>元素的值
+            fontDropdown.textContent = fontName;
+            fontSelect.value = selectedFont;
+        });
+    });
+});
+var txtbutton = document.getElementById("txtbutton");
+// 获取文件输入元素
+var fileInput = document.getElementById("fileInput");
+// 给按钮元素添加点击事件监听器
+txtbutton.addEventListener("click", function() {
+  // 触发文件输入元素的 click 方法
+  fileInput.click();
+});
+// 定义一个函数，用于读取文件内容并显示到文本域中
+function showContent() {
+  // 获取用户选择的文件
+  var file = fileInput.files[0];
+  // 创建一个 FileReader 对象
+  var reader = new FileReader();
+  // 读取文件为文本
+  reader.readAsText(file);
+  // 当读取完成后，将文件内容显示到文本域中
+  reader.onload = function() {
+    // 获取文本域元素
+    var textarea = document.getElementById("area");
+    // 设置文本域的内容为文件内容
+    textarea.value = this.result;
+  }
+}
+
+document.getElementById("btn").onclick = function myFonction() {
+    var utext = document.getElementById("area").value;
+    var temp = document.createElement("div");
+    temp.textContent = utext;
+    console.log(utext);
+
+    // 获取用户选择的字体
+    var selectedFont = document.getElementById("fontSelect").value;
+
+    // 获取用户选择的背景颜色
+    var selectedBgColor = document.getElementById("bgColor").value;
+
+    // 获取用户选择的打开方式
+    var openOption = document.querySelector('input[name="openOption"]:checked').value;
+
+    // 对用户输入的内容进行HTML转义
+    var formattedText = utext.replace(/&/g, '&amp;')
+                             .replace(/</g, '&lt;')
+                             .replace(/>/g, '&gt;')
+                             .replace(/"/g, '&quot;')
+                             .replace(/'/g, '&#039;');
+
+    // 计算背景颜色的亮度
+    function getBrightness(hexColor) {
+        // 去掉 # 号
+        hexColor = hexColor.replace('#', '');
+        // 分离 RGB 值
+        var r = parseInt(hexColor.substr(0, 2), 16);
+        var g = parseInt(hexColor.substr(2, 2), 16);
+        var b = parseInt(hexColor.substr(4, 2), 16);
+        // 计算亮度
+        return (r * 299 + g * 587 + b * 114) / 1000;
+    }
+
+    // 根据亮度选择字体颜色
+    var textColor = getBrightness(selectedBgColor) > 128 ? '#000000' : '#ffffff';
+
+    // 创建一个新的HTML页面内容
+    var newPageContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+            <meta charset="utf-8">
+            <title>朗读页面</title>
+				<link href="https://www.sgguo.com/css/animate.css" rel="stylesheet" type="text/css">
+            <style>
+                body {
+                    background-color: ${selectedBgColor};
+                    color: ${textColor}; /* 设置字体颜色 */
+                }
+                pre {
+                    font-family: ${selectedFont};
+                }
+                .tooltip {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    background-color: #333;
+                    color: #fff;
+                    padding: 10px;
+                    border-radius: 5px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                    z-index: 1000;
+                    opacity: 0;
+                    transition: opacity 0.5s ease-in-out;
+                }
+
+                .tooltip.show {
+                    opacity: 1;
+                }
+            </style>
+        </head>
+        <body>
+            <pre id="text" class="animate__animated animate__fadeInUp">${formattedText}</pre>
+            <div class="tooltip" id="tooltip">▶ 按下Ctrl+Shift+U快捷键开始朗读。<br>▶ 关闭本页自动清除临时文件。</div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    var tooltip = document.getElementById('tooltip');
+                    tooltip.classList.add('show');
+
+                    setTimeout(function() {
+                        tooltip.classList.remove('show');
+                        // 等待过渡动画完成后再移除元素
+                        tooltip.addEventListener('transitionend', function() {
+                            tooltip.remove();
+                        }, { once: true });
+                    }, 2000);
+
+                    document.addEventListener('keydown', function(event) {
+                        if (event.ctrlKey && event.shiftKey && event.key === 'U') {
+                            readText();
+                        }
+                    });
+
+                    function readText() {
+                        var text = document.getElementById('text').innerText;
+                        var utterance = new SpeechSynthesisUtterance(text);
+                        window.speechSynthesis.speak(utterance);
+                    }
+                });
+            <\/script>
+        </body>
+        </html>
+    `;
+
+    // 创建一个Blob对象
+    var blob = new Blob([newPageContent], { type: 'text/html' });
+    // 创建一个URL对象
+    var url = URL.createObjectURL(blob);
+
+    // 根据用户选择的打开方式打开新页面
+    if (openOption === 'tab') {
+        window.open(url, '_blank');
+    } else if (openOption === 'window') {
+        window.open(url, '_blank', 'width=800,height=600');
+    }
+}
+document.addEventListener('DOMContentLoaded', function () {
+            // 获取所有带有 has-popover 类名的按钮
+            const buttons = document.querySelectorAll('.has-popover');
+
+            // 为每个按钮添加事件监听器
+            buttons.forEach(button => {
+                const popoverContent = button.getAttribute('data-popover-content');
+                const popover = document.createElement('div');
+                popover.className = 'popover';
+                popover.textContent = popoverContent;
+                document.body.appendChild(popover);
+
+                // 计算气泡的位置并显示
+                function showPopover() {
+                    const rect = button.getBoundingClientRect();
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                    // 设置气泡的位置（在按钮的上方）
+                    popover.style.left = `${rect.left + window.scrollX}px`;
+                    popover.style.top = `${rect.top + scrollTop - popover.offsetHeight - 10}px`; // 减去气泡高度和一些偏移
+
+                    // 显示气泡
+                    popover.classList.add('show');
+                }
+
+                // 隐藏气泡
+                function hidePopover() {
+                    popover.classList.remove('show');
+                    setTimeout(() => popover.style.display = 'none', 300); // 动画结束时间后隐藏
+                }
+
+                // 添加鼠标事件监听器
+                button.addEventListener('mouseenter', function () {
+                    popover.style.display = 'block';
+                    showPopover();
+                });
+
+                button.addEventListener('mouseleave', function () {
+                    hidePopover();
+                });
+
+                // 监听窗口滚动事件，确保气泡跟随按钮位置变化
+                window.addEventListener('scroll', function () {
+                    if (popover.classList.contains('show')) {
+                        showPopover(); // 如果气泡已经显示，则重新计算位置
+                    }
+                });
+
+                // 监听窗口缩放事件，确保气泡跟随按钮位置变化
+                window.addEventListener('resize', function () {
+                    if (popover.classList.contains('show')) {
+                        showPopover(); // 如果气泡已经显示，则重新计算位置
+                    }
+                });
+            });
+        });
+			</script>
+</body>
+
+</html>
