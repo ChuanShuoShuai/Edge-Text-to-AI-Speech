@@ -57,8 +57,7 @@ When you generate a custom color, the new window will automatically adopt that c
 
 Edge-Text-to-AI-Speech does not collect any data of any kind.
 
-﻿
-shuaiguo has no home server.
+﻿shuaiguo has no home server.
 
 shuaiguo doesn't embed any analytic or telemetry hooks in its code.
 
