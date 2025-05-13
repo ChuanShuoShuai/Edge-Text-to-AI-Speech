@@ -2,14 +2,19 @@
 
 Automatically generate an empty page after entering a paragraph of text, allowing Edge browser to read whatever it wants to read. The method is as follows:
 
-1. Open a new website and select him
 输入一段文字后自动生成空页面让Edge浏览器想读什么就读什么，帅锅网站新增功能，方法如下：
+
+1. Open a new website and select him
 
 1.打开新网站选中他
 ![image](https://github.com/user-attachments/assets/6a59fae3-dab5-4ef6-ac5d-2c2e2f56e815)
 
+2. Then enter a random text on the new page
+
 2.然后在新的页面随便输入一个文本
 ![image](https://github.com/user-attachments/assets/36b1c764-8dd6-4a22-94e1-ffd2a1dbfcab)
+
+3. Click on "Generate" and press the Ctrl+Shift+U shortcut key to experience the natural voice that comes with the Windows 10/11 system. You can also add natural voice from the computer system settings, some of which include CapCut, such as "Commentary Xiaoshuai" - pay attention, this man's name is Xiaoshuai!
 
 3.点击生成，并按下Ctrl+Shift+U快捷键即可体验Windows 10/11系统自带自然语音，您也可以从电脑系统设置中添加自然语音，其中一些语音包含剪映，例如：解说小帅——注意看，这个男人叫小帅！
 ![image](https://github.com/user-attachments/assets/be1a2ca5-40c5-46d3-a6cd-a0a4d6e7bcc3)
