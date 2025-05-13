@@ -52,3 +52,12 @@ This feature is only valid on the computer side (browsers that support multiple 
 【Background setting】
 
 When you generate a custom color, the new window will automatically adopt that color. It is worth noting that the font color will change according to the background color to make it easier to observe the text. The font will be black in light colors and white in dark colors. In addition, when you generate multiple pages, these colors are independent, and even if you change the color on the Shuaiguo website, you will still retain the color of the generated pages, so you can generate multiple pages with different colors.
+
+# Privacy policy
+
+Edge-Text-to-AI-Speech does not collect any data of any kind.
+﻿
+shuaiguo has no home server.
+shuaiguo doesn't embed any analytic or telemetry hooks in its code.
+﻿
+GitHub is used to host the Edge-Text-to-AI-Speech project. GitHub, Inc. (a subsidiary of Microsoft Corporation) owns GitHub and is unrelated to Edge-Text-to-AI-Speech.
