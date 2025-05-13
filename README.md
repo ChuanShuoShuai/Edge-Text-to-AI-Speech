@@ -56,8 +56,12 @@ When you generate a custom color, the new window will automatically adopt that c
 # Privacy policy
 
 Edge-Text-to-AI-Speech does not collect any data of any kind.
+
 ﻿
 shuaiguo has no home server.
+
+
 shuaiguo doesn't embed any analytic or telemetry hooks in its code.
+
 ﻿
 GitHub is used to host the Edge-Text-to-AI-Speech project. GitHub, Inc. (a subsidiary of Microsoft Corporation) owns GitHub and is unrelated to Edge-Text-to-AI-Speech.
