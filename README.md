@@ -1,7 +1,8 @@
 # Edge-Text-to-AI-Speech
 
-Automatically generate an empty page after entering a paragraph of text, allowing Edge browser to read whatever it wants to read.
+Automatically generate an empty page after entering a paragraph of text, allowing Edge browser to read whatever it wants to read. The method is as follows:
 
+1. Open a new website and select him
 输入一段文字后自动生成空页面让Edge浏览器想读什么就读什么，帅锅网站新增功能，方法如下：
 
 1.打开新网站选中他
